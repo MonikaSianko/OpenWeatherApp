@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAppContainer = styled.div`
+export const StyledWheatherDisplay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

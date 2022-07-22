@@ -62,11 +62,11 @@ export const renderIcon = (iconName: string): JSX.Element => {
   return wheatherIcons[convertedIconName];
 };
 
-export const containerWidth = (
+export const getContainerWidth = (
   wrapperRef: React.RefObject<HTMLDivElement>
 ): number => {
   if (wrapperRef?.current) {
-    const sidePadding = 90;
+    const sidePadding = 60;
     return wrapperRef?.current?.offsetWidth - sidePadding;
   }
   return 200;
@@ -74,15 +74,15 @@ export const containerWidth = (
 
 export const getWheatherInfo = async (config: {
   cityDetails: ICityDetails;
-  setIsLoading: (value: React.SetStateAction<boolean>) => void;
+  setIsApiLoading: (value: React.SetStateAction<boolean>) => void;
   setWheatherInfo: (value: React.SetStateAction<IWheatherData | null>) => void;
   setApiError: (value: React.SetStateAction<boolean>) => void;
 }): Promise<void> => {
-  const { cityDetails, setIsLoading, setApiError, setWheatherInfo } = config;
+  const { cityDetails, setIsApiLoading, setApiError, setWheatherInfo } = config;
   const endpoint =
     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
   const url = `${endpoint}${cityDetails.name},${cityDetails.countryCode}?key=${process.env.REACT_APP_API_KEY}`;
-  setIsLoading(true);
+  setIsApiLoading(true);
   try {
     const response = await fetch(url, {
       method: "GET",
@@ -91,14 +91,14 @@ export const getWheatherInfo = async (config: {
     if (response.status === 200) {
       let data = await response.json();
       setWheatherInfo(data);
-      setIsLoading(false);
+      setIsApiLoading(false);
     } else {
       setApiError(true);
     }
   } catch (error) {
     setApiError(true);
   } finally {
-    setIsLoading(false);
+    setIsApiLoading(false);
   }
 };
 

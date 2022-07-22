@@ -48,10 +48,9 @@ export const StyledSingleDayTile = styled.div<IStyledSingleTile>`
       -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
     }
     .single-hour {
-      width: ${({ containerWidth }): string => `${containerWidth}px`};
       display: flex;
       flex-direction: column;
-      padding-left: 30px;
+      padding-right: 30px;
       svg {
         margin: 1.5rem 0;
         height: 40px;
