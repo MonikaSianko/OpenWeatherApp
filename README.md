@@ -16,7 +16,7 @@ Create an account at https://www.visualcrossing.com/ (it is free for  API usage 
 An API key will be generated instantly after confirming your email. 
 You can find it in Account -> Account details -> Key.
 
-3. Create an .env file in dir and create an enviorment variable:
+3. Create a .env file in directory folder and create an environment variable:
 ```
 REACT_APP_API_KEY = [your-api-key]
 ```
