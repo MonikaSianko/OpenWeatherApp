@@ -1,18 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-import { IDay } from "../App.types";
-import { celcius, getCelcius, getModeValue } from "../utils/helpers";
-
-const StyledSummary = styled.div``;
+import { IDay } from "../../App.types";
+import { celcius, getCelcius, getModeValue } from "../../utils/methods";
+import { StyledSummary } from "./Summary.styled";
 
 interface ISummary {
   resolvedAddress: string;
   description: string;
   days: IDay[] | [];
-}
-
-interface IFrequency {
-  [number: number]: number;
 }
 
 const Summary: React.FC<ISummary> = ({
@@ -29,35 +23,36 @@ const Summary: React.FC<ISummary> = ({
   const modeTemp = getCelcius(getModeValue(temp));
 
   return (
-    <StyledSummary className="Summary">
+    <StyledSummary className="summary">
       <div className="summary-header">
         <h1>{resolvedAddress}</h1>
         <p>{description}</p>
       </div>
-      <div className="summary-statistics"></div>
-      <div>
-        <h3>Mean temperature</h3>
-        <span>
-          {meanTemp} {celcius}
-        </span>
-      </div>
-      <div>
-        <h3>Mode temperature</h3>
-        <span>
-          {modeTemp} {celcius}
-        </span>
-      </div>
-      <div>
-        <h3>Min temperature</h3>
-        <span>
-          {minTemp} {celcius}
-        </span>
-      </div>
-      <div>
-        <h3>Max temperature</h3>
-        <span>
-          {maxTemp} {celcius}
-        </span>
+      <div className="summary-statistics">
+        <div>
+          <h3>Mean temperature</h3>
+          <span>
+            {meanTemp} {celcius}
+          </span>
+        </div>
+        <div>
+          <h3>Mode temperature</h3>
+          <span>
+            {modeTemp} {celcius}
+          </span>
+        </div>
+        <div>
+          <h3>Min temperature</h3>
+          <span>
+            {minTemp} {celcius}
+          </span>
+        </div>
+        <div>
+          <h3>Max temperature</h3>
+          <span>
+            {maxTemp} {celcius}
+          </span>
+        </div>
       </div>
     </StyledSummary>
   );
