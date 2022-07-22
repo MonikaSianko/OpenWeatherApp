@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 export const StyledAppContainer = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 25px 15px;
-
+  margin: 25px 15px;
   .wrapper {
+    width: 80%;
     max-width: 900px;
-    padding: 25px 45px;
+    padding: 25px;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     filter: drop-shadow(0px 4px 4px rgba(175, 169, 169, 0.67));
@@ -46,6 +44,9 @@ export const StyledAppContainer = styled.div`
   .reload-btn {
     width: 35px;
     height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(
       270deg,
       #38a3d8 2.22%,

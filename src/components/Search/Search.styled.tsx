@@ -11,7 +11,6 @@ export const StyledSearch = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    max-width: 700px;
     margin: 0 auto;
     label {
       text-transform: uppercase;
@@ -37,7 +36,6 @@ export const StyledSearch = styled.div`
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    max-width: 700px;
     margin: 10px auto;
   }
   input {

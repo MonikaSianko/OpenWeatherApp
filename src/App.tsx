@@ -79,9 +79,9 @@ const App = () => {
           <span className="logo">
             <CloudIcon /> WheatherOpenApp
           </span>
-          <button onClick={handleReload} className="reload-btn">
+          <span onClick={handleReload} className="reload-btn">
             <ReloadIcon />
-          </button>
+          </span>
         </div>
         <Search
           handleSetSearchedCity={handleSetSearchedCity}
