@@ -1,4 +1,4 @@
-# OpenWeatherMap
+# OpenWeatherApp
 
 Simple app that displays hourly weather prognosis for future five days for selected city.
 Deployed app: https://open-wheather-app.netlify.app/
