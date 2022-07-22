@@ -1,3 +1,4 @@
+import React from "react";
 import dayjs from "dayjs";
 import { ICityDetails } from "../App";
 import { IWheatherData } from "../App.types";
@@ -92,7 +93,7 @@ export const getWheatherInfo = async (config: {
       setWheatherInfo(data);
       setIsLoading(false);
     } else {
-      throw "Error fetching wheather data";
+      setApiError(true);
     }
   } catch (error) {
     setApiError(true);
