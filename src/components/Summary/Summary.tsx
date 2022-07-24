@@ -1,6 +1,6 @@
 import React from "react";
 import { IDay } from "../../App.types";
-import { celcius, getCelcius, getModeValue } from "../../utils/methods";
+import { celcius, getCelcius, getMode } from "../../utils/methods";
 import { StyledSummary } from "./Summary.styled";
 
 interface ISummary {
@@ -20,7 +20,11 @@ const Summary: React.FC<ISummary> = ({
   const lastNum = tempSortedIncreasingly.length - 1;
   const maxTemp = getCelcius(tempSortedIncreasingly[lastNum]);
   const minTemp = getCelcius(tempSortedIncreasingly[0]);
-  const modeTemp = getCelcius(getModeValue(temp));
+  const modeValue = getMode(temp);
+  const modeTemp =
+    modeValue.length > 0
+      ? modeValue?.map((el) => getCelcius(parseInt(el)))
+      : ["not found"];
 
   return (
     <StyledSummary className="summary">
@@ -37,9 +41,15 @@ const Summary: React.FC<ISummary> = ({
         </div>
         <div>
           <h3>Mode temperature</h3>
-          <span>
-            {modeTemp} {celcius}
-          </span>
+          {modeTemp.map((el, index) => (
+            <span key={`${el}_${index}`}>
+              {el}
+              {modeTemp[0] !== "not found" && celcius}
+              {modeTemp.length > 1 &&
+                modeTemp.indexOf(el) !== modeTemp.length - 1 &&
+                `,`}
+            </span>
+          ))}
         </div>
         <div>
           <h3>Min temperature</h3>

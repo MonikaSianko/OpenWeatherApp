@@ -69,9 +69,7 @@ const Search: React.FC<ISearch> = ({
         <h3>Popular locations:</h3>
         <div>
           {popularLocations.map((el, index) => (
-            <>
-              <span key={`${el}_${index}`}>{el}</span>
-            </>
+            <span key={`${el}_${index}`}>{el}</span>
           ))}
         </div>
       </div>

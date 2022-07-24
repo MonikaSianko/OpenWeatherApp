@@ -17,25 +17,25 @@ export const isValue = (value: string): boolean => {
   return value?.length > 0;
 };
 
-export const getModeValue = (arr: number[]) => {
-  let [maxFreq, result] = [-1, -1];
+interface IObj {
+  [key: string]: number;
+}
 
-  arr
-    .reduce((prevValue, currValue) => {
-      prevValue.set(
-        currValue,
-        (prevValue.has(currValue) ? prevValue.get(currValue) : 0) + 1
-      );
-      return prevValue;
-    }, new Map())
-    .forEach((value, key) => {
-      if (value > maxFreq) {
-        maxFreq = value;
-        result = key;
-      }
-    });
-
-  return result;
+export const getMode = (arr: number[]): string[] => {
+  let obj: IObj = {};
+  arr.forEach((num) => {
+    const key = num.toString();
+    if (obj.hasOwnProperty(key)) {
+      obj[key] = obj[key] + 1;
+    } else {
+      obj[key] = +1;
+    }
+  });
+  const values = Object.values(obj);
+  const maxValue = Math.max(...values);
+  const maxValuesKeys =
+    maxValue > 1 ? Object.keys(obj).filter((key) => obj[key] === maxValue) : [];
+  return maxValuesKeys;
 };
 
 const capitalizeFirstLetter = (value: string): string => {
